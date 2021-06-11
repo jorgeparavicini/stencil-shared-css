@@ -1,6 +1,6 @@
 export const guid = 'd905f8c8-9891-45d5-821f-9bfe8063d848';
 const crossTagReferenceCounts = new Map();
-export function componentConnected(element) {
+export function componentConnected(element, stylesheetName) {
     const root = element.getRootNode();
     const referenceCounts = crossTagReferenceCounts.get(element.tagName) || new WeakMap();
     const referenceCount = referenceCounts.get(root) || 0;
@@ -10,7 +10,7 @@ export function componentConnected(element) {
         }
         const link = document.createElement('link');
         link.setAttribute('rel', 'stylesheet');
-        link.setAttribute('href', `assets/${guid}-${element.tagName}.css`);
+        link.setAttribute('href', `assets/${stylesheetName}`);
         const parent = root instanceof ShadowRoot ? root : document.head;
         parent.appendChild(link);
     }
