@@ -1,12 +1,11 @@
 #! /usr/bin/env node
 'use strict';
 
-const glob = require('glob');
-const path = require('path');
-const fs = require('fs');
-
-const guid = require('../dist/index.js').guid;
-console.log(guid);
+import glob from 'glob';
+import fs from 'fs';
+import '../dist/index';
+console.log('mmm');
+console.log(componentConnected);
 
 function create_css(data) {
   console.log(data);
