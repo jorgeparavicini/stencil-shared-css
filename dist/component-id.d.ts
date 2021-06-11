@@ -1,1 +1,1 @@
-export default function componentId(): (target: Object, propertyKey: string) => void;
+export declare function componentId(): (target: Object, propertyKey: string) => void;

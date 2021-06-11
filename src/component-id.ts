@@ -1,3 +1,3 @@
-export default function componentId() {
+export function componentId() {
   return function (target: Object, propertyKey: string) {};
 }
