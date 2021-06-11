@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Share css files if multiple instances of a web component are insantiated",
   "bin": {
-    "deduplicate": "./bin/deduplicate"
+    "deduplicate": "./bin/deduplicate.mjs"
   },
   "scripts": {
     "build": "tsc"
