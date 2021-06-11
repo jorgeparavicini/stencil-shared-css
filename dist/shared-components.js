@@ -1,4 +1,4 @@
-import { guid } from '.';
+export const guid = 'd905f8c8-9891-45d5-821f-9bfe8063d848';
 const crossTagReferenceCounts = new Map();
 export function componentConnected(element) {
     const root = element.getRootNode();
