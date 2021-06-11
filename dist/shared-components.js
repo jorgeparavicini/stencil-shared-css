@@ -1,5 +1,6 @@
+import { guid } from '.';
 const crossTagReferenceCounts = new Map();
-export function componentConnected(element, id) {
+export function componentConnected(element) {
     const root = element.getRootNode();
     const referenceCounts = crossTagReferenceCounts.get(element.tagName) || new WeakMap();
     const referenceCount = referenceCounts.get(root) || 0;
@@ -9,7 +10,7 @@ export function componentConnected(element, id) {
         }
         const link = document.createElement('link');
         link.setAttribute('rel', 'stylesheet');
-        link.setAttribute('href', `assets/${id.toString}.css`);
+        link.setAttribute('href', `assets/${guid}-${element.tagName}.css`);
         const parent = root instanceof ShadowRoot ? root : document.head;
         parent.appendChild(link);
     }
