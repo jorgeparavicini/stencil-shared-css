@@ -2,7 +2,11 @@
   "name": "stencil-shared-css",
   "version": "1.0.0",
   "description": "Share css files if multiple instances of a web component are insantiated",
-  "main": "index.js",
+  "main": "dist/shared-component.js",
+  "types": "dist/shared-components.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "bin": {
     "deduplicate": "./bin/deduplicate"
   },
@@ -25,5 +29,8 @@
     "eslint": "^7.28.0",
     "prettier": "2.3.1",
     "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "guid-typescript": "^1.0.9"
   }
 }

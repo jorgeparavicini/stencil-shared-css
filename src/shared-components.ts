@@ -1,13 +1,25 @@
-const crossTagReferenceCounts: Map<
-  string,
-  WeakMap<Node, { referenceCount: number; styleUrl?: string }>
-> = new Map();
+import { Guid } from 'guid-typescript';
 
-export function componentConnected(element: HTMLElement) {
+const crossTagReferenceCounts: Map<string, WeakMap<Node, number>> = new Map();
+
+export function componentConnected(element: HTMLElement, id: Guid) {
   const root = element.getRootNode();
   const referenceCounts =
     crossTagReferenceCounts.get(element.tagName) || new WeakMap();
-  const rootReference = referenceCounts.get(root) || { referenceCount: 0 };
-  const referenceCount = rootReference.referenceCount + 1;
-  rootReference.referenceCount = referenceCount;
+  const referenceCount = referenceCounts.get(root) || 0;
+
+  if (referenceCount === 1) {
+    if (element.ownerDocument !== root) {
+      // TODO: add root to element
+    }
+
+    const link = document.createElement('link');
+    link.setAttribute('rel', 'stylesheet');
+    link.setAttribute('href', `assets/${id.toString}.css`);
+    const parent = root instanceof ShadowRoot ? root : document.head;
+    parent.appendChild(link);
+  }
+
+  referenceCounts.set(root, referenceCount);
+  crossTagReferenceCounts.set(element.tagName, referenceCounts);
 }
