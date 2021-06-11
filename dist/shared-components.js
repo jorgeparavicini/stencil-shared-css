@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.componentConnected = void 0;
 const crossTagReferenceCounts = new Map();
-function componentConnected(element, id) {
+export function componentConnected(element, id) {
     const root = element.getRootNode();
     const referenceCounts = crossTagReferenceCounts.get(element.tagName) || new WeakMap();
     const referenceCount = referenceCounts.get(root) || 0;
@@ -19,4 +16,3 @@ function componentConnected(element, id) {
     referenceCounts.set(root, referenceCount);
     crossTagReferenceCounts.set(element.tagName, referenceCounts);
 }
-exports.componentConnected = componentConnected;

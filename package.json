@@ -2,29 +2,28 @@
   "name": "stencil-shared-css",
   "version": "1.0.0",
   "description": "Share css files if multiple instances of a web component are insantiated",
-  "main": "dist/shared-component.js",
-  "types": "dist/shared-components.d.ts",
-  "scripts": {
-    "build": "tsc"
-  },
   "bin": {
     "deduplicate": "./bin/deduplicate"
   },
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Jorge Paravicini",
+  "license": "MIT",
+  "main": "dist/shared-components.js",
+  "types": "dist/shared-components.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jorgeparavicini/stencil-shared-css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jorgeparavicini/stencil-shared-css/issues"
   },
   "keywords": [
     "stencil",
     "shared",
     "css"
   ],
-  "author": "Jorge Paravicini",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jorgeparavicini/stencil-shared-css/issues"
-  },
-  "homepage": "https://github.com/jorgeparavicini/stencil-shared-css#readme",
   "devDependencies": {
     "eslint": "^7.28.0",
     "prettier": "2.3.1",
@@ -32,5 +31,8 @@
   },
   "dependencies": {
     "guid-typescript": "^1.0.9"
-  }
+  },
+  "files": [
+    "/dist/"
+  ]
 }

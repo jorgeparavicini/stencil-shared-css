@@ -1,4 +1,12 @@
 #! /usr/bin/env node
 'use strict';
 
-require()
+const glob = require('glob');
+const path = require('path');
+
+console.log(path.dirname(require.main.filename));
+
+console.log(__dirname);
+glob(__dirname + '/dist/esm/*.entry.js', (err, files) => {
+  console.log(files);
+});
