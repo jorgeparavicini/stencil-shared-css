@@ -1,11 +1,7 @@
-export const guid = 'd905f8c8-9891-45d5-821f-9bfe8063d848';
-
 const crossTagReferenceCounts: Map<string, WeakMap<Node, number>> = new Map();
 
-export function componentConnected(
-  element: HTMLElement,
-  stylesheetName: string,
-) {
+export default function componentConnected(element: HTMLElement, ref: any) {
+  const stylesheetName = ref['__cssFilename'] as string;
   const root = element.getRootNode();
   const referenceCounts =
     crossTagReferenceCounts.get(element.tagName) || new WeakMap();
