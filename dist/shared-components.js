@@ -1,9 +1,10 @@
-export const guid = 'd905f8c8-9891-45d5-821f-9bfe8063d848';
 const crossTagReferenceCounts = new Map();
-export function componentConnected(element, stylesheetName) {
+export default function componentConnected(element, ref) {
+    const stylesheetName = ref['__cssFilename'];
     const root = element.getRootNode();
     const referenceCounts = crossTagReferenceCounts.get(element.tagName) || new WeakMap();
     const referenceCount = referenceCounts.get(root) || 0;
+    console.log(referenceCount);
     if (referenceCount === 1) {
         if (element.ownerDocument !== root) {
             // TODO: add root to element
