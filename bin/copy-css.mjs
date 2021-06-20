@@ -35,7 +35,7 @@ function writeCss(css) {
 
 function replaceStyleProperty(fileContent, newCssFilename) {
   const newProperty = `.__cssFilename = "${newCssFilename}"`;
-  return fileContent.replace(/.style\s*=\s*([^\n\r]*)/, newProperty);
+  return fileContent.replace(/\.style\s*=\s*([^\n\r]*)/, newProperty);
 }
 
 if (!fs.existsSync(assetsDirectory)) {
