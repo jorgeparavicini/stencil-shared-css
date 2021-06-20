@@ -10,6 +10,7 @@ export function componentConnected(
   const referenceCounts =
     crossTagReferenceCounts.get(element.tagName) || new WeakMap();
   const referenceCount = referenceCounts.get(root) || 0;
+  console.log(referenceCount);
 
   if (referenceCount === 1) {
     if (element.ownerDocument !== root) {
