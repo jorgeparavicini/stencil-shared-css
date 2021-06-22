@@ -3,7 +3,7 @@
 
 import glob from 'glob';
 import fs from 'fs';
-import { dirname, basename } from 'path';
+import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { v4 as uuid4 } from 'uuid';
 

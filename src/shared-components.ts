@@ -27,7 +27,7 @@ export function componentConnected(element: HTMLElement, ref: any) {
   if (referenceCount === 1) {
     if (element.ownerDocument !== root) {
       // Remember the root for clean up.
-      (element as any).__rootNode = root;
+      ref.__rootNode = root;
     }
 
     // Create the stylesheet from the generated stylesheet name.
@@ -48,11 +48,11 @@ export function componentConnected(element: HTMLElement, ref: any) {
   crossTagReferenceCounts.set(element.tagName, referenceCounts);
 }
 
-export function componentDisconnected(element: HTMLElement) {
+export function componentDisconnected(element: HTMLElement, ref: any) {
   const referenceCounts = crossTagReferenceCounts.get(element.tagName);
   if (!referenceCounts) return;
 
-  const root = (element as any).__rootNode || element.ownerDocument;
+  const root = ref.__rootNode || element.ownerDocument;
   const info = referenceCounts.get(root) || ({ count: 0 } as ReferenceInfo);
   const referenceCount = info.count - 1;
 
