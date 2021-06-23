@@ -11,7 +11,7 @@
   "author": "Jorge Paravicini",
   "license": "MIT",
   "main": "dist/shared-components.js",
-  "module": "dist/index.js",
+  "module": "dist/shared-components.js",
   "type": "module",
   "repository": {
     "type": "git",
