@@ -12,6 +12,10 @@ export function componentConnected(element: HTMLElement, ref: any, styleConnecte
   // Get the generate stylesheet name.
   // The name __cssFilename will be added to the object at compile time.
   const stylesheetName = ref.constructor['__cssFilename'] as string;
+  if (stylesheetName == null) {
+    styleConnected?.();
+    return;
+  }
 
   // The Element reference from stencil points to the parent of the shadowRoot.
   // But we need the element inside the shadow dom, hence we try to get the shadowRoot

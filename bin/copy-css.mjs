@@ -15,7 +15,7 @@ const componentDir = rootDir + '/dist/esm/';
 function readCss(fileContent) {
   // Matches everything after the string 'Css = "'
   // and captures everything up to the closing quote
-  const re = /Css\s+=\s+\"([^\"]*)/;
+  const re = /Css\s+=\s+\"(.*)(?=\")/;
   const matches = re.exec(fileContent);
   if (matches == null || matches.length < 2) return null;
 
