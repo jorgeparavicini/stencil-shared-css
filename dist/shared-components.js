@@ -1,5 +1,5 @@
 const crossTagReferenceCounts = new Map();
-export function componentConnected(element, ref) {
+export function componentConnected(element, ref, styleConnected) {
     var _a;
     // Get the generate stylesheet name.
     // The name __cssFilename will be added to the object at compile time.
@@ -28,6 +28,8 @@ export function componentConnected(element, ref) {
         // Persist the created HTML Element in the info object.
         // Will be used in the cleanup.
         info.container = link;
+        // Invoke style connected callback
+        styleConnected === null || styleConnected === void 0 ? void 0 : styleConnected();
     }
     referenceCounts.set(root, info);
     crossTagReferenceCounts.set(element.tagName, referenceCounts);

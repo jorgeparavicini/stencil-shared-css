@@ -8,7 +8,7 @@ const crossTagReferenceCounts: Map<
   WeakMap<Node, ReferenceInfo>
 > = new Map();
 
-export function componentConnected(element: HTMLElement, ref: any) {
+export function componentConnected(element: HTMLElement, ref: any, styleConnected?: () => void) {
   // Get the generate stylesheet name.
   // The name __cssFilename will be added to the object at compile time.
   const stylesheetName = ref.constructor['__cssFilename'] as string;
@@ -42,6 +42,9 @@ export function componentConnected(element: HTMLElement, ref: any) {
     // Persist the created HTML Element in the info object.
     // Will be used in the cleanup.
     info.container = link;
+
+    // Invoke style connected callback
+    styleConnected?.();
   }
 
   referenceCounts.set(root, info);
